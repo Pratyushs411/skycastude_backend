@@ -11,12 +11,11 @@ require('dotenv').config();
 
 const app = express();
 app.use(express.json({ limit: '1mb' }));
-app.use(
-  cors({
-    origin: (origin, cb) => cb(null, true),
-    credentials: true,
-  })
-);
+app.use(cors({
+  origin: "https://sky-cast-tube-s4m1.vercel.app/", // your Vite frontend URL (change to deployed URL later)
+  methods: ["GET", "POST", "PUT", "DELETE"],
+  credentials: true
+}));
 
 const PORT = process.env.PORT ? Number(process.env.PORT) : 3001;
 
